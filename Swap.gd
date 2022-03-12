@@ -18,14 +18,14 @@ func _ready():
 		# Check if Minecraft Directory exists
 		if (dir.dir_exists(home_path + "/.minecraft")): # Normal Install
 			mc_path = (home_path + "/.minecraft")
-		elif (dir.dir_exists(home_path + "/.var/app/con.mojang.Minecraft/data/minecraft")): # Flatpak
-			mc_path = (home_path + "/.var/app/con.mojang.Minecraft/data/minecraft")
+		elif (dir.dir_exists(home_path + "/.var/app/com.mojang.Minecraft/data/minecraft")): # Flatpak
+			mc_path = (home_path + "/.var/app/com.mojang.Minecraft/data/minecraft")
 		else:
 			print("No Minecraft directory found!")
 	elif (current_os == "Windows"):
 		home_path = OS.get_environment("AppData")
 		
-		if (dir.dir_exists(home_path + "/.minecraft")):
+		if (dir.dir_exists(home_path + "/.minecraft")): # I have noticed dir.dir_exists doesn't exactly work too well, so I will need to find this out another way.
 			mc_path = (home_path + "/.minecraft")
 		else:
 			print("No Minecraft directory found!")

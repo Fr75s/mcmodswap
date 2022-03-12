@@ -6,35 +6,37 @@ This is a tool used to swap Minecraft mods. By creating folders of mods in a mod
 
 This tool is versatile, as in the background, all it really does is replace the contents of one folder with another. This allows for you to create any combination of mods; one could create a folder for fabric mods and another folder for forge mods, for example.
 
-I decided to recreate this tool in Godot versus Python/Qt5 as it allowed for much easier exporting. While building the app with Python/Qt5 allowed for a fully customizable interface, Godot isn't too far behind, and is way easier to export into an executable.4
+I decided to recreate this tool in Godot versus Python/Qt5 as it allowed for much easier exporting. While building the app with Python/Qt5 allowed for a fully customizable interface, Godot isn't too far behind, and is way easier to export into an executable.
 
 ### Setup
 
 Setting up this app will require you to go into your .minecraft folder. [Refer here to find out where it is on your OS.](https://minecraft.fandom.com/wiki/.minecraft)
 
 STEP 1:<br>
-Launch the app once. You will get an error code, but that is ok. This will create the *modswap* folder in its proper place. Leave the app once you see the error text.
+Launch the app once. You will get an error code, but that is ok. This will create the `modswap` folder in the `.minecraft` folder. Leave the app once you see the error text.
 
 STEP 2:<br>
-In your *modswap* folder, add more folders, each containing different mods. An example of this is shown below.
+In your `modswap` folder, add more folders, each containing different mods. An example of this is shown below.
 
-    modswap
+    .minecraft
     |
-    └───fabric_mods
-    |   |   mod1.jar
-    |   |   mod2.jar
-    |   |   mod3.jar
-    |
-    └───forge_mods
-    |   |   forge_mod1.jar
-    |   |   forge_mod2.jar
-    |
-    └───old_mods
-    |   |   old_mod1.jar
-    |   |   old_mod2.jar
-    |
-    └───fabric_mods_lite
-        |   mod1.jar
+    └───modswap
+        |
+        └───fabric_mods
+        |   |   mod1.jar
+        |   |   mod2.jar
+        |   |   mod3.jar
+        |
+        └───forge_mods
+        |   |   forge_mod1.jar
+        |   |   forge_mod2.jar
+        |
+        └───old_mods
+        |   |   old_mod1.jar
+        |   |   old_mod2.jar
+        |
+        └───fabric_mods_lite
+            |   mod1.jar
 
 
 STEP 3:<br>
