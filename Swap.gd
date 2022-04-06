@@ -158,3 +158,7 @@ func _on_AutoCloseTimer_timeout():
 
 func _on_InfoIcon_pressed():
 	$CredPanel.visible = not($CredPanel.visible)
+
+
+func _on_LinkToPage_pressed():
+	OS.shell_open("https://github.com/Fr75s/mcmodswap")
