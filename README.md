@@ -12,8 +12,8 @@ I decided to recreate this tool in Godot versus Python/Qt5 as it allowed for muc
 
 Setting up this app will require you to go into your .minecraft folder.
 
-- On Windows: `Users/(user)/AppData/Roaming/.minecraft OR %APPDATA%/Roaming/.minecraft`
-- On Linux: `~/.minecraft OR /home/(user)/.minecraft`
+- On Windows: `Users/(user)/AppData/Roaming/.minecraft` OR `%APPDATA%/Roaming/.minecraft`
+- On Linux: `~/.minecraft` OR `/home/(user)/.minecraft`
 - On MacOS: `/Library/Application Support/minecraft`
 
 STEP 1:<br>
