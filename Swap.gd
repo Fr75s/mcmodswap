@@ -42,6 +42,7 @@ func _ready():
 		print("Once again, sorry.")
 		
 		throw_error(1) # No OS Support
+		return
 		
 	
 	#
@@ -57,11 +58,13 @@ func _ready():
 			dir.make_dir(mc_path + "/modswap")
 	else:
 		throw_error(2) # No Minecraft Folder
+		return
 	
 	
 	#
 	# Add contents of modswap directory
 	#
+	
 	if (swap_path != ""):
 		dir.open(swap_path)
 		
@@ -78,6 +81,7 @@ func _ready():
 	
 	if $UIroot/Panel/Swaps.get_item_count() == 0:
 		throw_error(3) # No swap folders in modswap directory
+		return
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -95,7 +99,8 @@ func throw_error(code):
 		[2]:
 			description = "No .minecraft folder found. Either minecraft isn't installed or the folder is somewhere unexpected."
 		[3]:
-			description = "No swap folders in your swap directory. A folder in your .minecraft folder has been made called 'modswap', requiring folders with mods to be placed within. For more information, refer to the github page."
+			$UIroot/WelcomePanel.visible = true
+			$UIroot/ErrorPanel.visible = false
 		[_]:
 			description = "Unknown Error. How!?"
 	
@@ -134,7 +139,22 @@ func _on_Swaps_item_selected(index):
 		dir.list_dir_end()
 		
 		print("All done!")
-		get_tree().quit()
+		$UIroot/Panel.visible = false
+		$UIroot/FinishPanel.visible = true
+		
+		$InfoIcon.visible = false
+		$CredPanel.visible = false
+		
+		$AutoCloseTimer.start()
 		
 	else:
 		print("No mods folder, can't swap")
+
+func _process(delta):
+	$UIroot/FinishPanel/ClosingNotice.text = "Closing in " + str(ceil($AutoCloseTimer.time_left)) + "..."
+
+func _on_AutoCloseTimer_timeout():
+	get_tree().quit()
+
+func _on_InfoIcon_pressed():
+	$CredPanel.visible = not($CredPanel.visible)

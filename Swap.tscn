@@ -1,12 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Swap.gd" type="Script" id=1]
 [ext_resource path="res://Theme.tres" type="Theme" id=2]
 [ext_resource path="res://assets/fonts/Outfit-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/done.png" type="Texture" id=4]
+[ext_resource path="res://assets/icon_new.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/Outfit-Light.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.447059, 0.447059, 0.447059, 1 )
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 6 )
 
 [node name="Swap" type="Control"]
 anchor_right = 1.0
@@ -78,4 +90,96 @@ anchor_bottom = 0.8
 text = "Something seems to have went wrong."
 autowrap = true
 
+[node name="WelcomePanel" type="Panel" parent="UIroot"]
+visible = false
+margin_left = 0.126007
+margin_right = 575.874
+margin_bottom = 324.0
+
+[node name="Intro" type="Label" parent="UIroot/WelcomePanel"]
+anchor_right = 1.0
+anchor_bottom = 0.25
+margin_left = -0.126007
+margin_right = -0.125977
+custom_fonts/font = SubResource( 1 )
+text = "Welcome"
+align = 1
+valign = 1
+
+[node name="WelcomeText" type="Label" parent="UIroot/WelcomePanel"]
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.8
+text = "You appear to have not placed any modswap folders in your modswap directory. If this is your first time launching this app, a modswap folder has already been created in the correct place in the .minecraft folder. Refer to the github page to get started: https://github.com/Fr75s/mcmodswap"
+autowrap = true
+
+[node name="FinishPanel" type="Panel" parent="UIroot"]
+visible = false
+margin_left = 0.126007
+margin_right = 575.874
+margin_bottom = 324.0
+
+[node name="Title" type="Label" parent="UIroot/FinishPanel"]
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.3
+margin_left = -0.126007
+margin_right = -0.125977
+custom_fonts/font = SubResource( 1 )
+text = "All Done!"
+align = 1
+valign = 1
+
+[node name="Checkmark" type="TextureRect" parent="UIroot/FinishPanel"]
+anchor_left = 0.4
+anchor_top = 0.3
+anchor_right = 0.4
+anchor_bottom = 0.3
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="ClosingNotice" type="Label" parent="UIroot/FinishPanel"]
+anchor_left = 0.05
+anchor_top = 0.8
+anchor_right = 0.95
+anchor_bottom = 0.95
+text = "Closing in 3..."
+align = 1
+valign = 2
+autowrap = true
+
+[node name="CredPanel" type="Panel" parent="."]
+visible = false
+margin_left = 300.0
+margin_top = 16.0
+margin_right = 600.0
+margin_bottom = 64.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Label" type="Label" parent="CredPanel"]
+anchor_left = 0.1
+anchor_right = 0.1
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Tool By Fr75s
+https://github.com/Fr75s/mcmodswap"
+valign = 1
+
+[node name="InfoIcon" type="TextureButton" parent="."]
+margin_left = 568.0
+margin_top = 8.0
+margin_right = 632.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="AutoCloseTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="item_selected" from="UIroot/Panel/Swaps" to="." method="_on_Swaps_item_selected"]
+[connection signal="pressed" from="InfoIcon" to="." method="_on_InfoIcon_pressed"]
+[connection signal="timeout" from="AutoCloseTimer" to="." method="_on_AutoCloseTimer_timeout"]

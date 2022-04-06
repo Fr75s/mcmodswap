@@ -13,10 +13,12 @@ config_version=4
 config/name="Minecraft Mod Swap Tool"
 config/description="GUI Tool to quickly and easily swap mods for Minecraft with ease"
 run/main_scene="res://Swap.tscn"
-boot_splash/image="res://assets/icon_padded.png"
+boot_splash/image="res://assets/icon_new.png"
+boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.0705882, 0.0705882, 0.0705882, 1 )
-config/icon="res://icon.png"
-config/windows_native_icon="res://assets/icon.ico"
+config/icon="res://assets/icon_new.png"
+config/macos_native_icon="res://assets/icon_new.icns"
+config/windows_native_icon="res://assets/icon_new.ico"
 
 [display]
 

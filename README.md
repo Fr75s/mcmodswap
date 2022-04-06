@@ -13,7 +13,7 @@ I decided to recreate this tool in Godot versus Python/Qt5 as it allowed for muc
 Setting up this app will require you to go into your .minecraft folder. [Refer here to find out where it is on your OS.](https://minecraft.fandom.com/wiki/.minecraft)
 
 STEP 1:<br>
-Launch the app once. You will get an error code, but that is ok. This will create the `modswap` folder in the `.minecraft` folder. Leave the app once you see the error text.
+Launch the app once. You will reach the welcome screen. This will create the `modswap` folder in the `.minecraft` folder. Once the welcome screen opens, you can close the window.
 
 STEP 2:<br>
 In your `modswap` folder, add more folders, each containing different mods. An example of this is shown below.
@@ -44,5 +44,5 @@ Once you have created all the folders, you can now relaunch the app. You should 
 
 ### To do
 
-- Add Help Screen
-- More Customizations?
+- Proper Help Screen
+- UI improvements
