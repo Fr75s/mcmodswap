@@ -10,7 +10,11 @@ I decided to recreate this tool in Godot versus Python/Qt5 as it allowed for muc
 
 ### Setup
 
-Setting up this app will require you to go into your .minecraft folder. [Refer here to find out where it is on your OS.](https://minecraft.fandom.com/wiki/.minecraft)
+Setting up this app will require you to go into your .minecraft folder.
+
+- On Windows: `Users/(user)/AppData/Roaming/.minecraft OR %APPDATA%/Roaming/.minecraft`
+- On Linux: `~/.minecraft OR /home/(user)/.minecraft`
+- On MacOS: `/Library/Application Support/minecraft`
 
 STEP 1:<br>
 Launch the app once. You will reach the welcome screen. This will create the `modswap` folder in the `.minecraft` folder. Once the welcome screen opens, you can close the window.
